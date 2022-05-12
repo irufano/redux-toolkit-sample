@@ -1,3 +1,6 @@
+![alt text](https://github.com/irufano/redux-toolkit-sample/blob/master/ss/Screen%20Shot%202022-05-12%20at%2016.59.52.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
