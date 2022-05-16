@@ -7,6 +7,7 @@ import Employees from "./components/Employees";
 import Counter from "./components/Counter";
 import UserList from "./components/UserList";
 import CounterRedux from "./components/CounterRedux";
+import EmployeesRedux from "./components/EmployeesRedux";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path={"/"} element={<Home />} />
-        <Route path={"/employees"} element={<Employees />} />
+        <Route path={"/employees"} element={<EmployeesRedux />} />
         <Route path={"/counter"} element={<CounterRedux />} />
         <Route path={"/users"} element={<UserList />} />
       </Routes>

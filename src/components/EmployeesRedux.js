@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 import { EmployeeService } from "../services/EmployeeService";
+import { useDispatch, useSelector } from "react-redux";
+import { updateSelected } from "../redux/features/employees.feature";
 
-let Employees = () => {
-  let [state, setState] = useState({
-    employees: EmployeeService.getAllEmployees(),
+let EmployeesRedux = () => {
+  let dispatch = useDispatch();
+
+  // get the store data from redux
+  let employeeState = useSelector((store) => {
+    return store["employees"];
   });
 
-  let { employees } = state;
+  let { employees } = employeeState;
 
-  let updateSelected = (employeeId) => {
-    let selectedEmployess = employees.map((employee) => {
-      if (employee.id === employeeId) {
-        return {
-          ...employee,
-          isSelected: !employee.isSelected,
-        };
-      } else return employee;
-    });
-    setState({
-      ...state,
-      employees: selectedEmployess,
-    });
+  let changeUpdateSelected = (employeeId) => {
+    dispatch(updateSelected(employeeId));
   };
 
   return (
@@ -45,7 +39,8 @@ let Employees = () => {
                   return (
                     <li key={employee.id} className="list-group-item">
                       <input
-                        onChange={() => updateSelected(employee.id)}
+                        checked={employee.isSelected}
+                        onChange={() => changeUpdateSelected(employee.id)}
                         type="checkbox"
                         className="form-check-input me-2"
                       />
@@ -86,4 +81,4 @@ let Employees = () => {
   );
 };
 
-export default Employees;
+export default EmployeesRedux;

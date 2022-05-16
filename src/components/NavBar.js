@@ -12,13 +12,13 @@ let NavBar = () => {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link to={"/employees"} className="nav-link">
-                  Employees
+                <Link to={"/counter"} className="nav-link">
+                  Counter
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to={"/counter"} className="nav-link">
-                  Counter
+                <Link to={"/employees"} className="nav-link">
+                  Employees
                 </Link>
               </li>
               <li className="nav-item">
