@@ -1,5 +1,6 @@
 {
   "name": "redux-toolkit-sample",
+  "homepage": "https://cms-web.irufano.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
