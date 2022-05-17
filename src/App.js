@@ -8,6 +8,7 @@ import Counter from "./components/Counter";
 import UserList from "./components/UserList";
 import CounterRedux from "./components/CounterRedux";
 import EmployeesRedux from "./components/EmployeesRedux";
+import UserListRedux from "./components/UserListRedux";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path={"/"} element={<Home />} />
         <Route path={"/employees"} element={<EmployeesRedux />} />
         <Route path={"/counter"} element={<CounterRedux />} />
-        <Route path={"/users"} element={<UserList />} />
+        <Route path={"/users"} element={<UserListRedux />} />
       </Routes>
     </React.Fragment>
   );

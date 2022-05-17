@@ -1,40 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "../redux/features/user-list.feature";
 
-let UserList = () => {
-  let [state, setState] = useState({
-    loading: false,
-    users: [],
-    errorMessage: "",
+let UserListRedux = () => {
+  let dispatch = useDispatch();
+  /// get date from redux store
+  let userState = useSelector((store) => {
+    return store["users"];
   });
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    dispatch(getUsers());
+  }, [dispatch]);
 
-  let { loading, errorMessage, users } = state;
-
-  async function fetchData() {
-    try {
-      setState({
-        ...state,
-        loading: true,
-      });
-      let url = "https://jsonplaceholder.typicode.com/users";
-      let response = await axios.get(url);
-      setState({
-        ...state,
-        users: response.data,
-        loading: false,
-      });
-    } catch (error) {
-      setState({
-        ...state,
-        errorMessage: error,
-        loading: false,
-      });
-    }
-  }
+  let { loading, errorMessage, users } = userState;
 
   return (
     <React.Fragment>
@@ -53,7 +33,7 @@ let UserList = () => {
         <div className="row">
           <div className="col">
             {loading && <h2 className="fw-bold">Loading...</h2>}
-            {!loading && errorMessage.length > 0 && (
+            {!loading && errorMessage && (
               <h3 className="text-danger">{errorMessage}</h3>
             )}
             {!loading && users.length > 0 && (
@@ -91,4 +71,4 @@ let UserList = () => {
   );
 };
 
-export default UserList;
+export default UserListRedux;
